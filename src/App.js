@@ -8,6 +8,10 @@ import { Galleria } from "primereact//galleria";
 
 import { Fieldset } from "primereact/fieldset";
 
+import Tot_Revenue_Generated_img from "./Images/total-revenue-generated-plot-for-each-month.png";
+import Tot_Units_Sold_img from "./Images/total-units-sold-plot-for-each-month.png";
+import Ave_Price_Per_Unit_img from "./Images/average-price-per-unit-polt-for-each-month.png";
+
 function App() {
   const [images, setImages] = useState(null);
   const responsiveOptions = [
@@ -423,26 +427,20 @@ function App() {
             style={{ width: "70%" }}
             value={[
               {
-                itemImageSrc:
-                  "/dataanalysis/Images/total-revenue-generated-plot-for-each-month.png",
-                thumbnailImageSrc:
-                  "/dataanalysis/Images/total-revenue-generated-plot-for-each-month.png",
+                itemImageSrc: Tot_Revenue_Generated_img,
+                thumbnailImageSrc: Tot_Revenue_Generated_img,
                 alt: "Total revenue generated",
                 title: "Total revenue generated",
               },
               {
-                itemImageSrc:
-                  "/dataanalysis/Images/total-units-sold-plot-for-each-month.png",
-                thumbnailImageSrc:
-                  "/dataanalysis/Images/total-units-sold-plot-for-each-month.png",
+                itemImageSrc: Tot_Units_Sold_img,
+                thumbnailImageSrc: Tot_Units_Sold_img,
                 alt: "Total units sold",
                 title: "Total units sold",
               },
               {
-                itemImageSrc:
-                  "/dataanalysis/Images/average-price-per-unit-polt-for-each-month.png",
-                thumbnailImageSrc:
-                  "/dataanalysis/Images/average-price-per-unit-polt-for-each-month.png",
+                itemImageSrc: Ave_Price_Per_Unit_img,
+                thumbnailImageSrc: Ave_Price_Per_Unit_img,
                 alt: "Average price per unit",
                 title: "Average price per unit",
               },
