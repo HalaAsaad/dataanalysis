@@ -414,25 +414,25 @@ function App() {
             value={[
               {
                 itemImageSrc:
-                  "/Images/total-revenue-generated-plot-for-each-month.PNG",
+                  "/Images/total-revenue-generated-plot-for-each-month.png",
                 thumbnailImageSrc:
-                  "/Images/total-revenue-generated-plot-for-each-month.PNG",
+                  "/Images/total-revenue-generated-plot-for-each-month.png",
                 alt: "Total revenue generated",
                 title: "Total revenue generated",
               },
               {
                 itemImageSrc:
-                  "/Images/total-units-sold-plot-for-each-month.PNG",
+                  "/Images/total-units-sold-plot-for-each-month.png",
                 thumbnailImageSrc:
-                  "/Images/total-units-sold-plot-for-each-month.PNG",
+                  "/Images/total-units-sold-plot-for-each-month.png",
                 alt: "Total units sold",
                 title: "Total units sold",
               },
               {
                 itemImageSrc:
-                  "/Images/average-price-per-unit-polt-for-each-month.PNG",
+                  "/Images/average-price-per-unit-polt-for-each-month.png",
                 thumbnailImageSrc:
-                  "/Images/average-price-per-unit-polt-for-each-month.PNG",
+                  "/Images/average-price-per-unit-polt-for-each-month.png",
                 alt: "Average price per unit",
                 title: "Average price per unit",
               },
