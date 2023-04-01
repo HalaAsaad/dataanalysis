@@ -300,7 +300,17 @@ function App() {
     { field: "Tot_Units_Sold", header: "Total units sold" },
     { field: "Ave_Price_Per_Unit", header: "Average price per unit" },
     { field: "Tot_Num_Of_Orders", header: "Total number of orders" },
-    { field: "Rank", header: "Rank" },
+  ];
+  const rank_columns = [
+    { field: "Name", header: "Product" },
+    {
+      field: "Tot_Revenue_Generated_Rank",
+      header: "Total revenue generated Rank",
+    },
+    { field: "Tot_Units_Sold_Rank", header: "Total units sold Rank" },
+    { field: "Ave_Price_Per_Unit_Rank", header: "Average price per unit Rank" },
+    { field: "Tot_Num_Of_Orders_Rank", header: "Total number of orders Rank" },
+    { field: "Rank", header: "Mean Rank" },
   ];
   const columns_dataMonth = [
     { field: "Name", header: "Month" },
@@ -414,25 +424,25 @@ function App() {
             value={[
               {
                 itemImageSrc:
-                  "/Images/total-revenue-generated-plot-for-each-month.png",
+                  "/dataanalysis/Images/total-revenue-generated-plot-for-each-month.png",
                 thumbnailImageSrc:
-                  "/Images/total-revenue-generated-plot-for-each-month.png",
+                  "/dataanalysis/Images/total-revenue-generated-plot-for-each-month.png",
                 alt: "Total revenue generated",
                 title: "Total revenue generated",
               },
               {
                 itemImageSrc:
-                  "/Images/total-units-sold-plot-for-each-month.png",
+                  "/dataanalysis/Images/total-units-sold-plot-for-each-month.png",
                 thumbnailImageSrc:
-                  "/Images/total-units-sold-plot-for-each-month.png",
+                  "/dataanalysis/Images/total-units-sold-plot-for-each-month.png",
                 alt: "Total units sold",
                 title: "Total units sold",
               },
               {
                 itemImageSrc:
-                  "/Images/average-price-per-unit-polt-for-each-month.png",
+                  "/dataanalysis/Images/average-price-per-unit-polt-for-each-month.png",
                 thumbnailImageSrc:
-                  "/Images/average-price-per-unit-polt-for-each-month.png",
+                  "/dataanalysis/Images/average-price-per-unit-polt-for-each-month.png",
                 alt: "Average price per unit",
                 title: "Average price per unit",
               },
