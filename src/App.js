@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Card } from "primereact/card";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import Papa from "papaparse";
 import { Galleria } from "primereact//galleria";
 
 import { Fieldset } from "primereact/fieldset";
@@ -13,7 +12,6 @@ import Tot_Units_Sold_img from "./Images/total-units-sold-plot-for-each-month.pn
 import Ave_Price_Per_Unit_img from "./Images/average-price-per-unit-polt-for-each-month.png";
 
 function App() {
-  const [images, setImages] = useState(null);
   const responsiveOptions = [
     {
       breakpoint: "1024px",
@@ -41,7 +39,6 @@ function App() {
       />
     );
   };
-
   const thumbnailTemplate = (item) => {
     return (
       <img
@@ -56,7 +53,6 @@ function App() {
       />
     );
   };
-
   const caption = (item) => {
     return (
       <React.Fragment>
@@ -314,7 +310,65 @@ function App() {
     { field: "Tot_Units_Sold_Rank", header: "Total units sold Rank" },
     { field: "Ave_Price_Per_Unit_Rank", header: "Average price per unit Rank" },
     { field: "Tot_Num_Of_Orders_Rank", header: "Total number of orders Rank" },
-    { field: "Rank", header: "Mean Rank" },
+    { field: "Mean_Rank", header: "Mean Rank" },
+  ];
+  const dataRank = [
+    {
+      Tot_Revenue_Generated_Rank: "7",
+      Tot_Units_Sold_Rank: "7",
+      Ave_Price_Per_Unit_Rank: "6",
+      Tot_Num_Of_Orders_Rank: "7",
+      Name: "Classic Cars",
+      Mean_Rank: 6.75,
+    },
+    {
+      Tot_Revenue_Generated_Rank: "5",
+      Tot_Units_Sold_Rank: "5",
+      Ave_Price_Per_Unit_Rank: "4",
+      Tot_Num_Of_Orders_Rank: "5",
+      Name: "Motorcycles",
+      Mean_Rank: 4.75,
+    },
+    {
+      Tot_Revenue_Generated_Rank: "3",
+      Tot_Units_Sold_Rank: "3",
+      Ave_Price_Per_Unit_Rank: "3",
+      Tot_Num_Of_Orders_Rank: "4",
+      Name: "Planes",
+      Mean_Rank: 3.25,
+    },
+    {
+      Tot_Revenue_Generated_Rank: "2",
+      Tot_Units_Sold_Rank: "2",
+      Ave_Price_Per_Unit_Rank: "5",
+      Tot_Num_Of_Orders_Rank: "2",
+      Name: "Ships",
+      Mean_Rank: 2.75,
+    },
+    {
+      Tot_Revenue_Generated_Rank: "1",
+      Tot_Units_Sold_Rank: "1",
+      Ave_Price_Per_Unit_Rank: "1",
+      Tot_Num_Of_Orders_Rank: "1",
+      Name: "Trains",
+      Mean_Rank: 1.0,
+    },
+    {
+      Tot_Revenue_Generated_Rank: "4",
+      Tot_Units_Sold_Rank: "4",
+      Ave_Price_Per_Unit_Rank: "7",
+      Tot_Num_Of_Orders_Rank: "3",
+      Name: "Trucks and Buses",
+      Mean_Rank: 4.5,
+    },
+    {
+      Tot_Revenue_Generated_Rank: "6",
+      Tot_Units_Sold_Rank: "6",
+      Ave_Price_Per_Unit_Rank: "2",
+      Tot_Num_Of_Orders_Rank: "6",
+      Name: "Vintage Cars",
+      Mean_Rank: 5.0,
+    },
   ];
   const columns_dataMonth = [
     { field: "Name", header: "Month" },
@@ -322,41 +376,6 @@ function App() {
     { field: "Tot_Units_Sold", header: "Total units sold" },
     { field: "Ave_Price_Per_Unit", header: "Average price per unit" },
   ];
-  const [parsedData, setParsedData] = useState([]);
-
-  //State to store table Column name
-  const [tableRows, setTableRows] = useState([]);
-
-  //State to store the values
-  const [values, setValues] = useState([]);
-
-  const changeHandler = (event) => {
-    // Passing file data (event.target.files[0]) to parse using Papa.parse
-    Papa.parse(event.target.files[0], {
-      header: true,
-      skipEmptyLines: true,
-      complete: function (results) {
-        const rowsArray = [];
-        const valuesArray = [];
-
-        // Iterating data to get column name and their values
-        results.data.map((d) => {
-          rowsArray.push(Object.keys(d));
-          valuesArray.push(Object.values(d));
-        });
-
-        // Parsed Data Response in array format
-        setParsedData(results.data);
-
-        // Filtered Column Names
-        setTableRows(rowsArray[0]);
-
-        // Filtered Values
-        setValues(valuesArray);
-      },
-    });
-  };
-  console.log("ParsedData", parsedData);
   const legendTemplate = (title, icon) => (
     <div className="flex align-items-center text-primary">
       <span className={`pi ${icon} mr-2`}></span>
@@ -366,6 +385,10 @@ function App() {
   return (
     <div className="App" style={{ padding: "15px" }}>
       <Card title="Homework Assignment: Data Analysis Using Python">
+        <p>
+          Students: Hala Raeef Asaad ( hala_262333 ), Muhammad Wasim Alwisi (
+          muhammad_wasim_238246 )
+        </p>
         <Fieldset
           legend={legendTemplate("Results for each product", "pi-car")}
           toggleable
@@ -382,13 +405,6 @@ function App() {
               selling more
             </li>
           </ul>
-          {/* <input
-            type="file"
-            name="file"
-            onChange={changeHandler}
-            accept=".csv"
-            style={{ display: "block", margin: "10px auto" }}
-          /> */}
           <DataTable
             value={DataForEachProduct}
             tableStyle={{ minWidth: "50rem" }}
@@ -396,6 +412,18 @@ function App() {
             stripedRows
           >
             {columns_dataProd.map((col, i) => (
+              <Column key={col.field} field={col.field} header={col.header} />
+            ))}
+          </DataTable>
+          <br />
+          {/** Rank Table */}
+          <DataTable
+            value={dataRank}
+            tableStyle={{ minWidth: "50rem" }}
+            size="small"
+            stripedRows
+          >
+            {rank_columns.map((col, i) => (
               <Column key={col.field} field={col.field} header={col.header} />
             ))}
           </DataTable>
