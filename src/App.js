@@ -386,8 +386,8 @@ function App() {
     <div className="App" style={{ padding: "15px" }}>
       <Card title="Homework Assignment: Data Analysis Using Python">
         <p>
-          Students: Hala Raeef Asaad ( hala_262333 ), Muhammad Wasim Alwisi (
-          muhammad_wasim_238246 )
+          <b>Students:</b> Hala Raeef Asaad ( hala_262333 ), Muhammad Wasim
+          Alwisi ( muhammad_wasim_238246 )
         </p>
         <Fieldset
           legend={legendTemplate("Results for each product", "pi-car")}
